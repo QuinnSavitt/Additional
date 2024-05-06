@@ -16,3 +16,8 @@ def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) ->
 # Create an array of size n with unique integers that sum to 0
 def sumZero(self, n: int) -> List[int]:
         return [i for i in range(1, n//2+1)] + [-i for i in range(1, n//2+1)] + ([0] if n%2 else [])
+
+# Leetcode Problem 1189. I don't even want to talk about how slow this is.
+# Find the maximum number of times the word "balloon" can be formed with the letters of text.
+def maxNumberOfBalloons(self, text: str) -> int:
+        return min({"b":sum(1 for i in t if i == 'b'), "a":sum(1 for i in t if i == "a"), "l":sum(1 for i in t if i == 'l')//2, "o":sum(1 for i in t if i == 'o')//2, "n":sum(1 for i in t if i == 'n')}.values())
