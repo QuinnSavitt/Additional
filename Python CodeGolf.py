@@ -12,7 +12,7 @@ def heightChecker(self, heights: List[int]) -> int:
 def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
         return sorted([[i, j] for i in range(rows) for j in range(cols)], key=lambda a : abs(a[0]-rCenter) + abs(a[1] - cCenter))
 
-# Leetcode Problem 1304. Could be so much more efficient but for the purpose of CodeGolf it works.
+# Leetcode Problem 1304. Could be so much more efficient but for the purpose of CodeGolf it works. Beat 80% on memory though
 # Create an array of size n with unique integers that sum to 0
 def sumZero(self, n: int) -> List[int]:
         return [i for i in range(1, n//2+1)] + [-i for i in range(1, n//2+1)] + ([0] if n%2 else [])
