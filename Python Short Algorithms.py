@@ -10,7 +10,7 @@ class StairClimbing:
       self.stored[n] = add
       return add
 
-# While not the Optimal Approach (will be added next), a beautiful example of using a binary search and a 2D sliding window to solve LeetCode problem 221.
+# While not the Optimal Approach (will be added next), a beautiful example (in my humble opinion) of using a binary search and a 2D sliding window to solve LeetCode problem 221.
 # Find the maximum area of a square containing only 1s
 def maximalSquare(self, matrix: List[List[str]]) -> int:
         matrix = list(map(lambda a : list(map(int, a)), matrix))
@@ -51,3 +51,28 @@ def maximalSquare(self, matrix: List[List[str]]) -> int:
                     dp[y][x] = min(dp[y-1][x], dp[y-1][x-1], dp[y][x-1]) + 1
                 r = max(r, dp[y][x])
         return r**2
+
+# Fun LeetCode daily challenge on 5/6/2024. Used a stack approach and achieved 73.5% Runtime, 64% Memory.
+# Double an integer represented by a singly linked list and return the result in the same form.
+def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head.next:
+            if head.val < 5:
+                head.val *= 2
+                return head
+            else:
+                t = head.val*2
+                head.val = t//10
+                head.next = ListNode(t%10)
+                return head
+        it = head
+        stack = deque()
+        while it:
+            stack.append(it)
+            it = it.next
+        carry = False
+        while stack:
+            a = stack.pop()
+            a.val = a.val*2 + 1 if carry else a.val*2
+            carry = a.val > 9
+            a.val %= 10
+        return ListNode(1, head) if carry else head
