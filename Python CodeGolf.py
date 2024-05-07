@@ -36,3 +36,8 @@ def findNumbers(self, nums: List[int]) -> int:
 # Return a string of len n with only odd Character Counts
 def generateTheString(self, n: int) -> str:
         return "a"*(n-1)+"b" if not n%2 else "a"*n
+
+# LeetCode Problem 2150. Two lines (assigning the Counter to a variable) is the more optimal solution, and you can find that solution on my Leetcode, but then it wouldn't be CodeGolf.
+# Find all "lonely numbers" (numbers that only exist once and neither neighbor are present)
+def findLonely(self, nums: List[int]) -> List[int]:
+        return [i for i in Counter(nums) if Counter(nums)[i] == 1 and i-1 not in Counter(nums) and i+1 not in Counter(nums)]
