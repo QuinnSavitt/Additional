@@ -46,3 +46,8 @@ def findLonely(self, nums: List[int]) -> List[int]:
 # Make a "Maximum Binary Tree" from an array of integers.
 def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
         return TreeNode((m := max(nums)), constructMaximumBinaryTree(nums[:(i := nums.index(m))]), constructMaximumBinaryTree(nums[i+1:])) if nums else None
+
+# LeetCode problem 293. More self-hatred but its worth it for this file. If there is some eternal deity out there, I'm sorry.
+# Check if 4 unordered points make a valid square
+def validSquare(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]) -> bool:
+        return (len(set([dist(tuple(p1), tuple(p2)), dist(tuple(p1), tuple(p3)), dist(tuple(p1), tuple(p4)), dist(tuple(p2), tuple(p3)), dist(tuple(p2), tuple(p4)), dist(tuple(p3), tuple(p4))]))) == 2 and not (p1 == p2 or p1 == p3 or p1 == p4 or p2 == p3 or p2 == p4 or p3 == p4)
