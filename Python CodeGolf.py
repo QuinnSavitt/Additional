@@ -41,3 +41,8 @@ def generateTheString(self, n: int) -> str:
 # Find all "lonely numbers" (numbers that only exist once and neither neighbor are present)
 def findLonely(self, nums: List[int]) -> List[int]:
         return [i for i in Counter(nums) if Counter(nums)[i] == 1 and i-1 not in Counter(nums) and i+1 not in Counter(nums)]
+
+# LeetCode Problem 654. More optimal solution at 3 lines. This might be the most horrific beast in this file, and therefore it is my greatest accomplishment.
+# Make a "Maximum Binary Tree" from an array of integers.
+def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        return TreeNode(max(nums), self.constructMaximumBinaryTree(nums[:nums.index(max(nums))]), self.constructMaximumBinaryTree(nums[nums.index(max(nums))+1:])) if nums else None
