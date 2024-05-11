@@ -51,3 +51,8 @@ def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
 # Check if 4 unordered points make a valid square
 def validSquare(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]) -> bool:
         return (len(set([dist(tuple(p1), tuple(p2)), dist(tuple(p1), tuple(p3)), dist(tuple(p1), tuple(p4)), dist(tuple(p2), tuple(p3)), dist(tuple(p2), tuple(p4)), dist(tuple(p3), tuple(p4))]))) == 2 and not (p1 == p2 or p1 == p3 or p1 == p4 or p2 == p3 or p2 == p4 or p3 == p4)
+
+# LeetCode problem 338. Finally, a pretty one.
+# Return the number of 1s in the binary representations of every number in range [0, n]
+def countBits(self, n: int) -> List[int]:
+        return [sum([1 for j in list(bin(i)) if j == "1"]) for i in range(n+1)]
