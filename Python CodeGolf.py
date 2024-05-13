@@ -56,3 +56,8 @@ def validSquare(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]
 # Return the number of 1s in the binary representations of every number in range [0, n]
 def countBits(self, n: int) -> List[int]:
         return [sum([1 for j in list(bin(i)) if j == "1"]) for i in range(n+1)]
+
+# LeetCode problem 1619. Beats 84% Runtime
+# Mean of array after trimming the least and greatest 5% of data
+def trimMean(self, arr: List[int]) -> float:
+        return sum(sorted(arr)[(a := len(arr)//20): len(arr)-(a)])/(len(arr)-(2*a))
