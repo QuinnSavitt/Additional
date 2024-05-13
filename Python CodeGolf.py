@@ -66,3 +66,8 @@ def trimMean(self, arr: List[int]) -> float:
 # Reformat Date from "Day Month Year" format to "YYYY-MM-DD" format.
 def reformatDate(self, date: str) -> str:
         return (a := date.split(" "))[2] + "-" + str(["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].index(a[1])).zfill(2) + "-" + (a[0])[:-2].zfill(2)
+
+# Leetcode problem 2744
+# Find the number of flipped strings in array words
+def maximumNumberOfStringPairs(self, words: List[str]) -> int:
+        return sum([1 for i in range(len(words)) for j in range(i+1, len(words)) if words[i] == words[j][::-1]])
