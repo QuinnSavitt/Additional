@@ -61,3 +61,8 @@ def countBits(self, n: int) -> List[int]:
 # Mean of array after trimming the least and greatest 5% of data
 def trimMean(self, arr: List[int]) -> float:
         return sum(sorted(arr)[(a := len(arr)//20): len(arr)-(a)])/(len(arr)-(2*a))
+
+# LeetCode Problem 1507 Beats 63% Runtime, 87.5% Memory. The Walrus operator is a CodeGolf Wonder of the World
+# Reformat Date from "Day Month Year" format to "YYYY-MM-DD" format.
+def reformatDate(self, date: str) -> str:
+        return (a := date.split(" "))[2] + "-" + str(["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].index(a[1])).zfill(2) + "-" + (a[0])[:-2].zfill(2)
