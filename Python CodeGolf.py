@@ -71,3 +71,8 @@ def reformatDate(self, date: str) -> str:
 # Find the number of flipped strings in array words
 def maximumNumberOfStringPairs(self, words: List[str]) -> int:
         return sum([1 for i in range(len(words)) for j in range(i+1, len(words)) if words[i] == words[j][::-1]])
+
+# Leetcode Problem 1704. Python please allow walrus operators in list comprehensions, I beg you. Beats 81% Runtime, 96% Memory
+# Does a string have an equal number of vowels in both halves?
+def halvesAreAlike(self, s: str) -> bool:
+        return sum(1 for i in list(s.lower()[:len(s)//2]) if i in "aeiou") == sum(1 for i in list(s.lower()[len(s)//2:]) if i in "aeiou")
