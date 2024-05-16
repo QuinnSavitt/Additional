@@ -76,3 +76,8 @@ def maximumNumberOfStringPairs(self, words: List[str]) -> int:
 # Does a string have an equal number of vowels in both halves?
 def halvesAreAlike(self, s: str) -> bool:
         return sum(1 for i in list(s.lower()[:len(s)//2]) if i in "aeiou") == sum(1 for i in list(s.lower()[len(s)//2:]) if i in "aeiou")
+
+# LeetCode Problem 2331 (Daily 5/16/2024). A really interesting one in my opinion.
+# Evaluate a Boolean Binary Tree
+def evaluateTree(self, root: Optional[TreeNode]) -> bool:
+        return (self.evaluateTree(root.left) or self.evaluateTree(root.right) if root.val == 2 else self.evaluateTree(root.left) and self.evaluateTree(root.right)) if root.left else bool(root.val)
