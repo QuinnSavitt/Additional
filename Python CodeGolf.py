@@ -77,7 +77,12 @@ def maximumNumberOfStringPairs(self, words: List[str]) -> int:
 def halvesAreAlike(self, s: str) -> bool:
         return sum(1 for i in list(s.lower()[:len(s)//2]) if i in "aeiou") == sum(1 for i in list(s.lower()[len(s)//2:]) if i in "aeiou")
 
-# LeetCode Problem 2331 (Daily 5/16/2024). A really interesting one in my opinion.
+# LeetCode Problem 2331 (Daily 5/16/2024). A really interesting one in my opinion: recursion, multiple ternery operators, and an int -> bool conversion.
 # Evaluate a Boolean Binary Tree
 def evaluateTree(self, root: Optional[TreeNode]) -> bool:
         return (self.evaluateTree(root.left) or self.evaluateTree(root.right) if root.val == 2 else self.evaluateTree(root.left) and self.evaluateTree(root.right)) if root.left else bool(root.val)
+
+# LeetCode Problem 1758. Get ready for this beast. My first bitwise one-liner though! Beats 94% Runtime.
+# Minimum number of changes needed to create an alternatin binary string.
+def minOperations(self, s: str) -> int:
+        return min(sum(1 for i in bin(int(s, 2)^int("10"*(len(s)//2) + ("1" if (len(s)%2) else ""), 2))[2:] if i=="1"), sum(1 for i in bin(int(s, 2)^int("01"*(len(s)//2) + ("0" if (len(s)%2) else ""), 2))[2:] if i=="1"))
