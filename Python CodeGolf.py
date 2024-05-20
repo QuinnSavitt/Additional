@@ -86,3 +86,8 @@ def evaluateTree(self, root: Optional[TreeNode]) -> bool:
 # Minimum number of changes needed to create an alternatin binary string.
 def minOperations(self, s: str) -> int:
         return min(sum(1 for i in bin(int(s, 2)^int("10"*(len(s)//2) + ("1" if (len(s)%2) else ""), 2))[2:] if i=="1"), sum(1 for i in bin(int(s, 2)^int("01"*(len(s)//2) + ("0" if (len(s)%2) else ""), 2))[2:] if i=="1"))
+
+# LeetCode Problem 2094. I love when they're actually pretty. Beats 58% Runtime, 96% Memory.
+# Find all even 3 digit numbers that can be constructed by an array of digits.
+def findEvenNumbers(self, digits: List[int]) -> List[int]:
+        return [i for i in range(100, 999, 2) if len([j for j in str(i) if int(j) in digits and str(i).count(j) <= digits.count(int(j))]) == 3]
