@@ -91,3 +91,8 @@ def minOperations(self, s: str) -> int:
 # Find all even 3 digit numbers that can be constructed by an array of digits.
 def findEvenNumbers(self, digits: List[int]) -> List[int]:
         return [i for i in range(100, 999, 2) if len([j for j in str(i) if int(j) in digits and str(i).count(j) <= digits.count(int(j))]) == 3]
+
+# LeetCode Problem 3079. Finally, one that doesn't use list comprehension (ish). Beats 76.16% Runtime, 98.46% Memory
+# Find the sum of all elements in an array where all digits have been replaced by their respective largest digit.
+def sumOfEncryptedInt(self, nums: List[int]) -> int:
+        return sum(list(map(lambda x : int(sorted(b := list(str(x)))[-1]) * int("1"*len(b)), nums)))
