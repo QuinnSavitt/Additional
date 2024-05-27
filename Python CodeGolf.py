@@ -96,3 +96,8 @@ def findEvenNumbers(self, digits: List[int]) -> List[int]:
 # Find the sum of all elements in an array where all digits have been replaced by their respective largest digit.
 def sumOfEncryptedInt(self, nums: List[int]) -> int:
         return sum(list(map(lambda x : int(sorted(b := list(str(x)))[-1]) * int("1"*len(b)), nums)))
+
+# LeetCode Problem 226. Another pretty Constructor + Recursion one. Sometimes this is actually fun.
+# Invert a Binary Tree.
+def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        return TreeNode(root.val, (self.invertTree(root.right) if root.right else None), (self.invertTree(root.left) if root.left else None)) if root else None
