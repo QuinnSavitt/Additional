@@ -76,3 +76,14 @@ def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
             carry = a.val > 9
             a.val %= 10
         return ListNode(1, head) if carry else head
+
+# LeetCode Contest 3/31/2024 Problem 3. Simple Dynamic Programming Approach. Beats 86.6% RunTime, 98% Memory.
+# Count the total number of contiguous alternating subarrays.
+def countAlternatingSubarrays(self, nums: List[int]) -> int:
+        dp = [1]
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i-1]:
+                dp.append(1+dp[i-1])
+            else:
+                dp.append(1)
+        return sum(dp)
